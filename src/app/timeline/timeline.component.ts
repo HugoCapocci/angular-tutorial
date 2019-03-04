@@ -18,7 +18,8 @@ export class TimelineComponent implements OnInit {
       created_at: 'Thu Apr 06 15:24:15 +0000 2017',
       id: 2,
       text: 'Qui a deux pouces et qui s\'en fout ? Bob Kelso !',
-      user: 'Bob kelso'
+      user: 'Bob kelso',
+      favoriteCount: 2
     },
   ];
 

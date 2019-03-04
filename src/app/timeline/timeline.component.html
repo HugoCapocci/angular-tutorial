@@ -6,6 +6,10 @@
   <div class="tweet-content">
     {{ tweet.text }}
   </div>
+  <div class="favorite">
+    <i class="far fa-heart"></i>
+    <span *ngIf="tweet.favoriteCount">{{ tweet.favoriteCount }}</span>
+  </div>
 </div>
 
 <div class="create-tweet-container">
