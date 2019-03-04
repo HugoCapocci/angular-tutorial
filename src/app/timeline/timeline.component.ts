@@ -22,9 +22,21 @@ export class TimelineComponent implements OnInit {
     },
   ];
 
+  user: string = 'Hugo';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addTweet(text: string) {
+    const tweet: Tweet = {
+      created_at: new Date().toISOString(),
+      id: this.tweets.length + 1,
+      text,
+      user: this.user
+    }
+    this.tweets.push(tweet);
   }
 
 }

@@ -7,3 +7,12 @@
     {{ tweet.text }}
   </div>
 </div>
+
+<div class="create-tweet-container">
+  <div class="tweet-content">
+    <textarea cols="50" rows="5" #tweetContent></textarea>
+  </div>
+  <div class="footer">
+    <button class="send-tweet-button" (click)="addTweet(tweetContent.value)">Tweeter</button>
+  </div>
+</div>

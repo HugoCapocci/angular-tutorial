@@ -10,7 +10,7 @@ import { TimelineComponent } from './timeline/timeline.component';
   declarations: [
     AppComponent,
     TimelineComponent,
-    TimeAgoPipe
+    TimeAgoPipe,
   ],
   imports: [
     BrowserModule,
