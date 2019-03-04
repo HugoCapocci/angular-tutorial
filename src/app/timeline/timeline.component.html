@@ -1,0 +1,9 @@
+<div *ngFor="let tweet of tweets" class="tweet-container">
+  <div class="tweet-header">
+    <strong>{{ tweet.user }}</strong>
+    <small class="time">{{ tweet.created_at | date:'short' }}</small>
+  </div>
+  <div class="tweet-content">
+    {{ tweet.text }}
+  </div>
+</div>
