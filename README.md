@@ -1,4 +1,4 @@
-# AngularShopTutorial
+# AngularTutorial
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.2.
 
@@ -25,3 +25,19 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+<hr/>
+
+# Exercice
+
+## Setup:
+
+  - Fork the project, and clone it
+  - create your own dev branch `git checkout -b dev`
+  - launch `npm install` to download dependencies
+
+## Sync with forked repository:
+
+ - use command `git fetch upstream` to retrieve master branch from forked repository. It will create a local upstream/master branch.
+ - go to your local master branch: `git checkout master`
+ - merge the upstream master to your local master: ` git merge upstream/master`. You're up to date!
