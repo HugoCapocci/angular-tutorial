@@ -7,8 +7,12 @@
     {{ tweet.text }}
   </div>
   <div class="favorite">
-    <i class="far fa-heart"></i>
-    <span *ngIf="tweet.favoriteCount">{{ tweet.favoriteCount }}</span>
+    <i class="button fa-heart" [ngClass]="{
+      'fas': tweet.isLiked,
+      'far': !tweet.isLiked
+    }"
+    (click)="likeTweet(tweet.id)"></i>
+    <span *ngIf="tweet.favoriteCount != null">{{ tweet.favoriteCount }}</span>
   </div>
 </div>
 
