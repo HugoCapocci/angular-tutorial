@@ -3,5 +3,6 @@ export interface Tweet {
   id: number,
   text: string,
   user: string,
-  favoriteCount?: number
+  favoriteCount?: number,
+  isLiked?: boolean
 }
