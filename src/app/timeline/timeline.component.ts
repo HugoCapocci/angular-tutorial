@@ -23,7 +23,7 @@ export class TimelineComponent implements OnInit {
     },
   ];
 
-  user: string = 'Hugo';
+  private user;
 
   constructor() { }
 

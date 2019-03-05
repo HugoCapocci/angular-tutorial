@@ -1,3 +1,9 @@
+<div class="user-box">
+  <div *ngIf="user"><span>Bienvenue, {{ user | uppercase }}</span></div>
+  <div *ngIf="!user"><span>Veuillez saisir votre nom </span></div>
+  <div><small>Modifier: </small><input [(ngModel)]="user" placeholder="votre nom"></div>
+</div>
+
 <div *ngFor="let tweet of tweets" class="tweet-container">
   <div class="tweet-header">
     <strong>{{ tweet.user }}</strong>
@@ -21,6 +27,11 @@
     <textarea cols="50" rows="5" #tweetContent></textarea>
   </div>
   <div class="footer">
-    <button class="send-tweet-button" (click)="addTweet(tweetContent.value)">Tweeter</button>
+    <button
+      class="send-tweet-button"
+      [class.disabled]="!user"
+      [disabled]="!user"
+      (click)="addTweet(tweetContent.value)"
+    >Tweeter</button>
   </div>
 </div>
