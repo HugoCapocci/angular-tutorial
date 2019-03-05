@@ -1,33 +1,28 @@
 
 
-<div class="container mt-5 rounded" style="border: 1px solid #eee">
+<div class="container mt-5 rounded" style="border: 1px solid #1b95e0">
     
-    <h3 class="text-center mb-4 mt-2"> Mon fil d'actualité  <span style="color: #1b95e0"><i class="fab fa-twitter"></i></span>  </h3>
+    <h3 class="text-center mb-4 mt-2 rounded" style="background-color: #1b95e0; color:#fff ;padding:10px;"> Mon fil d'actualité  <span ><i class="fab fa-twitter"></i></span>  </h3>
     <div class="card m-2" *ngFor="let tweet of tweets">
-        <h5 class="card-header"><img src="https://placehold.it/50x50" class="mr-2 rounded-circle"> <b>{{tweet.user}}</b><a href="#"> @{{tweet.user}} </a> - <small class="text-muted">{{ tweet.created_at | date : format : timezone}}</small></h5>
+        <h5 class="card-header"><img src="https://placehold.it/50x50" class="mr-2 rounded-circle"><b>{{tweet.user}}</b>-<a href="#">@{{tweet.user}} </a> <small class="text-muted" style="float: right;">{{ tweet.created_at | timeAgo }}</small></h5>
         <div class="card-body">
-            
             <p class="card-text">{{tweet.text}}</p>
-
         </div>
-                <div class="card">
-                    <div class="card-footer text-center" style="background-color: #fff !important;">
-                            <div class="row " style="margin-left: 400px;">                        
-                                <div class="col-md-2">  
-                                        <a href="#" class="btn btn-outline-primary btn-sm btn-block "><i class="fas fa-retweet"></i></a>
-                                </div>
-                                <div class="col-md-2">  
-                                        <a href="#" class="btn btn-outline-danger btn-sm btn-block ">♥</a>
-                                </div>
-                                <div class="col-md-2">  
-                                        <a href="#" class="btn btn-outline-success btn-sm btn-block "><i class="far fa-share-square"></i></a>
-                                </div>
+            <div class="card">
+                <div class="card-footer text-center" style="background-color: #fff !important;">
+                        <div class="row " style="margin-left: 350px;">                        
+                            <div class="col-md-2">  
+                                    <a href="#" class="btn btn-outline-success btn-sm btn-block "><i class="fas fa-retweet"></i></a>
                             </div>
-    
-                    </div>
-    
+                            <div class="col-md-2">  
+                                    <a href="#" class="btn btn-outline-danger btn-sm btn-block "><i class="fas fa-heart"> {{ tweet.like }}</i></a>
+                            </div>
+                            <div class="col-md-2">  
+                                    <a href="#" class="btn btn-outline-primary btn-sm btn-block "><i class="fas fa-share-alt"></i></a>
+                            </div>
+                        </div>
                 </div>
+            </div>
     </div>
-
 </div>
 
