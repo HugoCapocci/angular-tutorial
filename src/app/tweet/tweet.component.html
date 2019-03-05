@@ -1,0 +1,15 @@
+<div class="tweet-header">
+  <strong>{{ tweet.user }}</strong>
+  <small class="time">{{ tweet.created_at | timeAgo }}</small>
+</div>
+<div class="tweet-content">
+  {{ tweet.text }}
+</div>
+<div class="favorite">
+  <i class="button fa-heart" [ngClass]="{
+    'fas': tweet.isLiked,
+    'far': !tweet.isLiked
+  }"
+  (click)="likeTweet(tweet.id)"></i>
+  <span *ngIf="tweet.favoriteCount != null">{{ tweet.favoriteCount }}</span>
+</div>

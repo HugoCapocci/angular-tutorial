@@ -39,16 +39,4 @@ export class TimelineComponent implements OnInit {
     }
     this.tweets.push(tweet);
   }
-
-  likeTweet(id) {
-    const tweetIndex = this.tweets.findIndex(tweet => tweet.id === id);
-    const tweet = this.tweets[tweetIndex];
-    if(!tweet.isLiked) {
-      tweet.favoriteCount ? tweet.favoriteCount++ : tweet.favoriteCount = 1;
-      tweet.isLiked = true;
-    } else {
-      tweet.favoriteCount--;
-      tweet.isLiked = false;
-    }
-  }
 }
