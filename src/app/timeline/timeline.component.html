@@ -1,6 +1,6 @@
 
 
-<div class="container mt-5 rounded" style="border: 1px solid #1b95e0">
+<div class="container mt-3 rounded" style="border: 1px solid #1b95e0">
     
     <h3 class="text-center mb-4 mt-2 rounded" style="background-color: #1b95e0; color:#fff ;padding:10px;"> Mon fil d'actualité  <span ><i class="fab fa-twitter"></i></span>  </h3>
     <div class="card m-2" *ngFor="let tweet of tweets">
@@ -15,7 +15,8 @@
                                     <a href="#" class="btn btn-outline-success btn-sm btn-block "><i class="fas fa-retweet"></i></a>
                             </div>
                             <div class="col-md-2">  
-                                    <a href="#" class="btn btn-outline-danger btn-sm btn-block "><i class="fas fa-heart"> {{ tweet.like }}</i></a>
+                                    <a href="#" *ngIf="tweet.liked === true  " class="btn btn-danger btn-sm btn-block " (click)="UpdateLike(tweet.id)" ><i class="fas fa-heart"> {{ tweet.like }}</i></a>
+                                    <a href="#" *ngIf="tweet.liked === false " class="btn btn-outline-danger btn-sm btn-block " (click)="UpdateLike(tweet.id)" ><i class="far fa-heart"> {{ tweet.like }}</i></a>
                             </div>
                             <div class="col-md-2">  
                                     <a href="#" class="btn btn-outline-primary btn-sm btn-block "><i class="fas fa-share-alt"></i></a>
@@ -23,6 +24,13 @@
                         </div>
                 </div>
             </div>
+    </div>
+    <hr>
+    <div class="form-group mt-5 mb-5">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+            <textarea class="form-control" rows="3" name="tweetValue" ngModel required></textarea>
+            <button class="btn btn-info rounded-pill mt-1"  type="submit" style="float: right;" >Tweeter</button>
+        </form>
     </div>
 </div>
 
