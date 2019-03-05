@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Tweet } from '../tweet';
 @Component({
   selector: 'app-timeline',
   templateUrl: './timeline.component.html',
   styleUrls: ['./timeline.component.less']
 })
 export class TimelineComponent implements OnInit {
-  tweets = [
+  tweets:Tweet[] = [
      {
       created_at: 'Wed Apr 05 12:30:12 +0000 2017',
       id: 1,
