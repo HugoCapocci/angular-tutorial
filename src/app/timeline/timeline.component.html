@@ -1,10 +1,26 @@
-<ul>
-	<li *ngFor="let tweet of tweets">
-		<i (click)="likeTweet(tweet)" class="far fa-heart"></i><label *ngIf="tweet.like > 0">{{tweet.like}}</label><br>
-		<strong>{{tweet.created_at | date:'short' }}</strong> - {{tweet.user}} : {{tweet.text}}
-	</li>
-</ul>
-<br>
-<label>Formulaire textarea</label>
-<textarea #newTweet cols="30" rows="10">{{newTweet.value}}</textarea>
-<button (click)="onSave(newTweet.value)">Save</button>
+<div *ngFor="let tweet of tweets" class="tweet-container">
+  <div class="tweet-header">
+    <strong>{{ tweet.user }}</strong>
+    <small class="time">{{ tweet.created_at | timeAgo }}</small>
+  </div>
+  <div class="tweet-content">
+    {{ tweet.text }}
+  </div>
+  <div class="favorite">
+    <i class="button fa-heart" [ngClass]="{
+      'fas': tweet.isLiked,
+      'far': !tweet.isLiked
+    }"
+    (click)="likeTweet(tweet.id)"></i>
+    <span *ngIf="tweet.favoriteCount != null">{{ tweet.favoriteCount }}</span>
+  </div>
+</div>
+
+<div class="create-tweet-container">
+  <div class="tweet-content">
+    <textarea cols="50" rows="5" #tweetContent></textarea>
+  </div>
+  <div class="footer">
+    <button class="send-tweet-button" (click)="addTweet(tweetContent.value)">Tweeter</button>
+  </div>
+</div>
