@@ -8,6 +8,8 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./timeline.component.less']
 })
 export class TimelineComponent implements OnInit {
+  username:string = undefined;
+  disabled: boolean = false;
   tweets:Tweet[] = [
      {
       created_at: 'Wed Apr 05 12:30:12 +0000 2017',
@@ -35,29 +37,41 @@ export class TimelineComponent implements OnInit {
   onSubmit(f: NgForm) {
     if(f.valid)
     {
-      let newTweet = {
-        "created_at": new Date().toString(),
-        "id":this.tweets.length,
-        "text":f.value.tweetValue,
-        "user": 'Aurélien',
-        like: 0,
-        liked: false,
-     }
-     this.tweets.push(newTweet);
+      if(this.username!== undefined && this.username !== "")
+      {
+        let newTweet = {
+          "created_at": new Date().toString(),
+          "id":this.tweets.length,
+          "text":f.value.tweetValue,
+          "user": this.username,
+          like: 0,
+          liked: false,
+        }
+        this.tweets.push(newTweet);
+        this.disabled = false;
+      }else{
+        alert('Veuillez saisir un nom d\'utilisateur')
+        this.disabled = true;
+      }
     }else{
       alert('Un tweet ne peut pas être vide')
     }
     
   }
+  UpdateUsername(form1: NgForm){
+    if(form1.valid){
+      this.username = form1.value.username;
+      this.disabled = false;
+      console.log(this.disabled)
+    }
+  }
   UpdateLike(element: number){
-  
-    let found = this.tweets.find(function(target){
-      return target.id === element;
+    let found = this.tweets.find(function(tweet){
+      return tweet.id === element; 
+    })//callback de l'élement contenant l'Id
       
-    })
-    //console.log(found)
-    if(!found['liked'])
-    {
+    //Traitement
+    if(!found['liked']){
       found['liked'] = true;
       found['like'] = found['like'] + 1;
     }else{
