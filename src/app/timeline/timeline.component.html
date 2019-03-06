@@ -2,6 +2,7 @@
 
 <div *ngFor="let tweet of tweets" class="tweet-container">
   <app-tweet [tweet]="tweet"></app-tweet>
+  <a routerLink="/detail/{{tweet.id}}">détail</a>
 </div>
 
 <div class="create-tweet-container">
