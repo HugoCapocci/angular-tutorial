@@ -1,0 +1,45 @@
+@grey: #657786;
+
+.tweet-container {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.tweet-header {
+  color: #14171a;
+
+  .time {
+    white-space: nowrap;
+  }
+}
+
+.time {
+  color: @grey;
+}
+
+.time:before {
+  content: "\00b7";
+  margin: 5px;
+}
+
+.tweet-content {
+  margin: 0;
+  p {
+    white-space: pre-wrap;
+  }
+}
+
+.favorite {
+  margin-top: 5px;
+  color: #e0245e;
+  .button {
+    cursor: pointer;
+  }
+  span {
+    margin-left: 4px;
+  }
+}
+
+.favorite-count {
+  margin-left: 4px;
+}
