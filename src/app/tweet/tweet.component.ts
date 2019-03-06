@@ -8,8 +8,8 @@ import { Tweet } from '../tweet';
   styleUrls: ['./tweet.component.less']
 })
 export class TweetComponent implements OnInit {
-
-  @Input() tweet: Tweet;
+  @Input()
+  tweet: Tweet;
 
   constructor() { }
 
@@ -17,7 +17,7 @@ export class TweetComponent implements OnInit {
   }
 
   likeTweet() {
-    if(!this.tweet.isLiked) {
+    if (!this.tweet.isLiked) {
       this.tweet.favoriteCount ? this.tweet.favoriteCount++ : this.tweet.favoriteCount = 1;
       this.tweet.isLiked = true;
     } else {

@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { TweetComponent } from './tweet/tweet.component';
+import { UserBoxComponent } from './user-box/user-box.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { TweetComponent } from './tweet/tweet.component';
     TimelineComponent,
     TimeAgoPipe,
     TweetComponent,
+    UserBoxComponent,
   ],
   imports: [
     BrowserModule,
