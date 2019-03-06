@@ -26,4 +26,8 @@ export class TweetsService {
   getTweets() {
     return this.tweets;
   }
+
+  getTweetById(id: number) {
+    return this.tweets.find(tweet => tweet.id === id);
+  }
 }
