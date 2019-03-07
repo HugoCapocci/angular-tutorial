@@ -1,19 +1,12 @@
 <app-user-box [user]="user"></app-user-box>
 
+<div class="add-tweet">
+  <a routerLink="/create-tweet"><i class="fas fa-plus-circle"></i></a>
+</div>
+
 <div *ngFor="let tweet of tweets" class="tweet-container" (click)="goToDetail(tweet.id)">
   <app-tweet [tweet]="tweet"></app-tweet>
 </div>
 
-<div class="create-tweet-container">
-  <div class="tweet-content">
-    <textarea cols="50" rows="5" #tweetContent></textarea>
-  </div>
-  <div class="footer">
-    <button
-      class="send-tweet-button"
-      [class.disabled]="!user.name"
-      [disabled]="!user.name"
-      (click)="addTweet(tweetContent.value)"
-    >Tweeter</button>
-  </div>
-</div>
+
+

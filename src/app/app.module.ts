@@ -9,6 +9,7 @@ import { TimelineComponent } from './timeline/timeline.component';
 import { TweetComponent } from './tweet/tweet.component';
 import { UserBoxComponent } from './user-box/user-box.component';
 import { TweetDetailComponent } from './tweet-detail/tweet-detail.component';
+import { CreateTweetComponent } from './create-tweet/create-tweet.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { TweetDetailComponent } from './tweet-detail/tweet-detail.component';
     TweetComponent,
     UserBoxComponent,
     TweetDetailComponent,
+    CreateTweetComponent,
   ],
   imports: [
     BrowserModule,
