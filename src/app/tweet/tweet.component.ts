@@ -16,7 +16,8 @@ export class TweetComponent implements OnInit {
   ngOnInit() {
   }
 
-  likeTweet() {
+  likeTweet(id: number, event: Event) {
+    event.stopPropagation();
     if (!this.tweet.isLiked) {
       this.tweet.favoriteCount ? this.tweet.favoriteCount++ : this.tweet.favoriteCount = 1;
       this.tweet.isLiked = true;

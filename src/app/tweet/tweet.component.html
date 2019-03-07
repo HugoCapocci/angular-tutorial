@@ -10,6 +10,6 @@
     'fas': tweet.isLiked,
     'far': !tweet.isLiked
   }"
-  (click)="likeTweet(tweet.id)"></i>
+  (click)="likeTweet(tweet.id, $event)"></i>
   <span *ngIf="tweet.favoriteCount != null">{{ tweet.favoriteCount }}</span>
 </div>
