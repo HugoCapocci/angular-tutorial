@@ -1,43 +1,45 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, concat } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
+
 import { Tweet } from './tweet';
+
+const TWEETS_API_URL = 'assets/tweets.json'
 
 @Injectable({
   providedIn: 'root'
 })
 export class TweetsService {
+  tweets: BehaviorSubject<Tweet[]> = new BehaviorSubject<Tweet[]>([]);
 
-  tweets: Tweet[] = [
-    {
-      created_at: 'Wed Apr 05 12:30:12 +0000 2017',
-      id: 1,
-      text: 'Je mets les pieds où je veux, Little John… et c\'est souvent dans la gueule.',
-      user: 'James Braddock'
-    },
-    {
-      created_at: 'Thu Apr 06 15:24:15 +0000 2017',
-      id: 2,
-      text: 'Qui a deux pouces et qui s\'en fout ? Bob Kelso !',
-      user: 'Bob kelso',
-      favoriteCount: 2
-    },
-  ];
-  constructor() { }
+  constructor(private httpClient: HttpClient) {
+    httpClient.get(TWEETS_API_URL).subscribe((tweets: Tweet[]) => {
+      this.tweets.next(tweets);
+    });
+  }
 
   getTweets() {
     return this.tweets;
   }
 
   getTweetById(id: number) {
-    return this.tweets.find(tweet => tweet.id === id);
+    return this.tweets.pipe(
+      map((tweets: Tweet[]) =>
+        tweets.find(tweet => tweet.id === id)
+      )
+    );
   }
 
   createTweet(text: string, userName: string) {
-    const tweet: Tweet = {
-      created_at: new Date().toISOString(),
-      id: this.tweets.length + 1,
-      text,
-      user: userName
-    };
-    this.tweets.push(tweet);
+    return this.tweets.subscribe((tweets: Tweet[]) => {
+      const tweet: Tweet = {
+        created_at: new Date().toISOString(),
+        id: tweets.length + 1,
+        text,
+        user: userName
+      };
+      tweets.push(tweet);
+    });
   }
 }
