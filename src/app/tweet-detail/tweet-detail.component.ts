@@ -20,7 +20,7 @@ export class TweetDetailComponent implements OnInit {
   }
 
   getTweet() {
-    const id = parseInt(this.route.snapshot.paramMap.get('id'));
+    const id = parseInt(this.route.snapshot.paramMap.get('id'), 10);
     this.tweet = this.tweetsService.getTweetById(id);
   }
 

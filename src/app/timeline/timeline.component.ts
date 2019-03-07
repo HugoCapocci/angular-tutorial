@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Tweet } from '../tweet';
 import { User } from '../user';
@@ -15,10 +16,14 @@ export class TimelineComponent implements OnInit {
   user: User = {};
   tweets: Tweet[];
 
-  constructor(private tweetsService: TweetsService) { }
+  constructor(private tweetsService: TweetsService, private router: Router) {}
 
   ngOnInit() {
     this.getTweets();
+  }
+
+  goToDetail(tweetId: number) {
+    this.router.navigateByUrl('/detail/' + tweetId);
   }
 
   addTweet(text: string) {
