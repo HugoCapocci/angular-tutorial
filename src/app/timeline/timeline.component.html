@@ -1,8 +1,7 @@
 <app-user-box [user]="user"></app-user-box>
 
-<div *ngFor="let tweet of tweets" class="tweet-container">
+<div *ngFor="let tweet of tweets" class="tweet-container" (click)="goToDetail(tweet.id)">
   <app-tweet [tweet]="tweet"></app-tweet>
-  <a routerLink="/detail/{{tweet.id}}">détail</a>
 </div>
 
 <div class="create-tweet-container">
