@@ -1,0 +1,5 @@
+<div class="user-box">
+  <div *ngIf="user.name"><span>Bienvenue, {{ user.name | uppercase }}</span></div>
+  <div *ngIf="!user.name"><span>Veuillez saisir votre nom </span></div>
+  <div><small>Modifier: </small><input [(ngModel)]="user.name" placeholder="votre nom"></div>
+</div>
