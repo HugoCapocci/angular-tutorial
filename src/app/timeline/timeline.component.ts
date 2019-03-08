@@ -26,6 +26,8 @@ export class TimelineComponent implements OnInit {
   }
 
   getTweets(): void {
-    this.tweets = this.tweetsService.getTweets();
+    this.tweetsService.getTweets().subscribe(tweets => {
+      this.tweets = tweets;
+    });
   }
 }
