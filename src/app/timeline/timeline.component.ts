@@ -13,8 +13,6 @@ import { TweetsService } from '../tweets.service';
 })
 export class TimelineComponent implements OnInit {
   @ViewChild(UserBoxComponent)
-  user: User = {};
-
   tweets: Tweet[];
 
   constructor(private tweetsService: TweetsService, private router: Router) {}
@@ -25,16 +23,6 @@ export class TimelineComponent implements OnInit {
 
   goToDetail(tweetId: number) {
     this.router.navigateByUrl('/detail/' + tweetId);
-  }
-
-  addTweet(text: string) {
-    const tweet: Tweet = {
-      created_at: new Date().toISOString(),
-      id: this.tweets.length + 1,
-      text,
-      user: this.user.name
-    };
-    this.tweets.push(tweet);
   }
 
   getTweets(): void {

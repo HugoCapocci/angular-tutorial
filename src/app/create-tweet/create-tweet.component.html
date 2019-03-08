@@ -1,0 +1,20 @@
+<div class="create-tweet-container">
+  <div class="tweet-content">
+    <textarea cols="50" rows="5" #tweetContent></textarea>
+  </div>
+  <div class="footer">
+    <button
+      class="send-tweet-button"
+      [class.disabled]="!user.name"
+      [disabled]="!user.name"
+      (click)="addTweet(tweetContent.value)"
+    >Tweeter</button>
+  </div>
+</div>
+
+<div class="footer">
+  <a routerLink="/timeline">
+    <i class="fas fa-arrow-circle-left"></i>
+    <span>Retour</span>
+  </a>
+</div>

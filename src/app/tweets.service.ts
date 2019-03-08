@@ -30,4 +30,14 @@ export class TweetsService {
   getTweetById(id: number) {
     return this.tweets.find(tweet => tweet.id === id);
   }
+
+  createTweet(text: string, userName: string) {
+    const tweet: Tweet = {
+      created_at: new Date().toISOString(),
+      id: this.tweets.length + 1,
+      text,
+      user: userName
+    };
+    this.tweets.push(tweet);
+  }
 }
