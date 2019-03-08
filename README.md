@@ -39,5 +39,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Sync with forked repository:
 
  - use command `git fetch upstream` to retrieve master branch from forked repository. It will create a local upstream/master branch.
+   - if error occurs, like `fatal: 'upstream' does not appear to be a git repository`, then type following command: `git remote add upstream https://github.com/HugoCapocci/angular-tutorial.git`
  - go to your local master branch: `git checkout master`
  - merge the upstream master to your local master: ` git merge upstream/master`. You're up to date!
